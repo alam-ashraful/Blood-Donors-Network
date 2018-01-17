@@ -133,7 +133,7 @@
 			  <option value="A+">A+</option>
 			  <option value="A-">A-</option>
 			  <option value="AB+">AB+</option>
-			  <option value="AB-">AB+</option>
+			  <option value="AB-">AB-</option>
 			  <option value="B+">B+</option>
 			  <option value="B-">B-</option>
 			  <option value="O+">O+</option>
@@ -176,5 +176,7 @@
 	<label>Already have an account. Please </label>
 	<a href="/Blood Donors Network/Login.php" style="text-decoration: none; color: green;">Log in</a>
 	<label> here.</label>
+	<br />
+	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/Home.php">Home</a></label>
 </body>
 </html>

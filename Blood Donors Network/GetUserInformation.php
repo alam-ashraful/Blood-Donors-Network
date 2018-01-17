@@ -1,13 +1,24 @@
 <?php
 	
-	function GetUserInformationDB1P($tablename)
+	function GetUserInformationDB1P($tableName)
 	{
-		return "table name";
+		require 'DB.php';
+
+		$userInfomationSql = 'SELECT * FROM ' . $tableName;
+
+		$result = $conn->query($userInfomationSql);
+
+		// if($result->num_rows > 0)
+		// {
+		// 	$row = $result->fetch_assoc();
+		// }
+
+		return $result;
 	}
 
 	function GetUserInformation2P($tableName, $columnName)
 	{
-		require_once 'DB.php';
+		require 'DB.php';
 
 		$userInfomationSql = 'SELECT * FROM ' . $tableName . ' WHERE  EmailID = ' . '"' . $columnName . '"';
 

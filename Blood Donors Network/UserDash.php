@@ -18,6 +18,8 @@
 			session_unset();
 			session_destroy();
 			header("location: Login.php");
+		}else if (isset($_POST['update'])) {
+			//
 		}
 	}
 ?>
@@ -33,10 +35,14 @@
 			font-family: Harrington;
 		}
 	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body class="MainContent">
  
 	<h1 style="color: blue;">Welcome to Blood Donors Network</h1>
+	<label>Go to <a href="/Blood Donors Network/Home.php"><p><i class="material-icons w3-spin w3-jumbo">home</i></p></a></label>
 		<p>Hi, <?php echo $getUserInfo['FirstName']?> </p>
 
 			<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
@@ -101,10 +107,10 @@
 					<br /><br />
 				</div>
 
-				<label>Want donate your blood?<br /><b style="color: green;"><?php echo $getUserInfo['Status']; ?></b></label>
+				<label>Want to donate your blood?<br /><b style="color: green;"><?php echo $getUserInfo['Status']; ?></b></label>
 			    <br /><br />
 				
-				<!-- <input type="submit" name="submit" value="Update"> -->
+				<input type="submit" name="update" value="Update">
 				<input type="submit" name="logOut" value="Log out">
 			</form>
 </body>

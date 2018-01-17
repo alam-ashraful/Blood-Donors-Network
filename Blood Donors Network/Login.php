@@ -102,5 +102,8 @@
 	<label>Don't have an account?</label>
 	<a href="/Blood Donors Network/Registration.php" style="text-decoration: none; color: cyan;">Sign up</a>
 	<label> here.</label>
+
+	<br />
+	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/Home.php">Home</a></label>
 </body>
 </html>
