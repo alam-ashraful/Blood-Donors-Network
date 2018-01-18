@@ -31,4 +31,15 @@
 
 		return $row;
 	}
+
+	function GetUserInformationBySearch($searchValue)
+	{
+		require 'DB.php';
+
+		$userInfomationSql = 'SELECT * FROM `user` WHERE Division LIKE ' . "'" . '%'. $searchValue . '%' . "'" . ' OR District LIKE ' . "'" . '%' . $searchValue . '%' . "'" .' OR Area LIKE ' . "'" . '%' . $searchValue . '%' . "'" . ' OR BloodGroup LIKE ' . "'" . '%' . $searchValue . '%' . "'";
+
+		$result = $conn->query($userInfomationSql);
+		
+		return $result;
+	}
 ?>

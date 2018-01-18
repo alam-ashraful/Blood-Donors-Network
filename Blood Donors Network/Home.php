@@ -1,8 +1,20 @@
 <?php
 	session_start();
+
 	require 'GetUserInformation.php';
 
 	$getAllUserInfo = GetUserInformationDB1P("User");
+
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		if (isset($_POST["searchBtn"])) {
+			if (!empty($_POST["search"])) {
+				$getAllUserInfo =  GetUserInformationBySearch($_POST["search"]);
+			}else{
+				echo "Please type Division/District/Area name on search box";
+			}
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +74,8 @@
 		<tr>
 			<th colspan="6">
 				<form method="POST">
-					Search donar : <input style="width: 50%; color: green;" type="text" name="search" title="Search donar by Blood Group/Division/District/Area" placeholder="Search donar by Blood Group/Division/District/Area">
-					<input type="submit" name="search" value="Search">
+					Search donar : <input style="width: 50%; color: green;" type="text" name="search" title="Search donar by Blood Group/Division/District/Area" placeholder="Search donar by Blood Group/Division/District/Area" autocomplete="on">
+					<input type="submit" name="searchBtn" value="Search">
 				</form>
 			</th>
 		</tr>
@@ -78,29 +90,38 @@
 			<th>Living history</th>
 			<th>Reguest for blood</th>
 		</tr>
-		<?php while ($rowValue = $getAllUserInfo->fetch_assoc()) {
-			?>
-		<tr>
-			<td><?php echo $rowValue['FirstName'] . " " . $rowValue['LastName']; ?></td>
-			<td><?php echo $rowValue['BloodGroup']; ?></td>
-			<td><?php echo $rowValue['PhoneNumber']; ?></td>
-			<td><?php echo $rowValue['Status']; ?></td>
-			<td>
-				Division : <?php echo $rowValue['Division'] ?><br />District : <?php echo $rowValue['District']; ?><br />Area: <?php echo $rowValue['Area']; ?>
-			</td>
-			<td><input type="submit" name="sendBloodRequest" value="Request for Blood"></td>
-		</tr>
-		<tr>
-			<th colspan="6">
-				Ratings: 0% <!-- later from db -->
-				<br />&#10004; Rate this user
-				<input type="radio" name="userRate" value="1"><label>1</label>
-				<input type="radio" name="userRate" value="2"><label>2</label>
-				<input type="radio" name="userRate" value="3"><label>3</label>
-				<input type="radio" name="userRate" value="4"><label>4</label>
-				<input type="radio" name="userRate" value="5"><label>5</label>
-			</th>
-		</tr>
+		<?php
+			if($getAllUserInfo->num_rows > 0){
+				while ($rowValue = $getAllUserInfo->fetch_assoc()) {
+				?>
+			<tr>
+				<td><?php echo $rowValue['FirstName'] . " " . $rowValue['LastName']; ?></td>
+				<td><?php echo $rowValue['BloodGroup']; ?></td>
+				<td><?php echo $rowValue['PhoneNumber']; ?></td>
+				<td><?php echo $rowValue['Status']; ?></td>
+				<td>
+					Division : <?php echo $rowValue['Division'] ?><br />District : <?php echo $rowValue['District']; ?><br />Area: <?php echo $rowValue['Area']; ?>
+				</td>
+				<td><input type="submit" name="sendBloodRequest" value="Request for Blood"></td>
+			</tr>
+			<tr>
+				<th colspan="6">
+					Ratings: 0% <!-- later from db -->
+					<br />&#10004; Rate this user
+					<input type="radio" name="userRate" value="1"><label>1</label>
+					<input type="radio" name="userRate" value="2"><label>2</label>
+					<input type="radio" name="userRate" value="3"><label>3</label>
+					<input type="radio" name="userRate" value="4"><label>4</label>
+					<input type="radio" name="userRate" value="5"><label>5</label>
+				</th>
+			</tr>
+		<?php
+				}
+			}else{
+				?>
+				<tr>
+					<td colspan="6" style="color: red; text-align: center;">There's no data found.</td>
+				</tr>
 		<?php
 			}
 		?>
