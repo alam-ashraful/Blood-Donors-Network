@@ -2,8 +2,8 @@
 	session_start();
 
 	require 'GetUserInformation.php';
-
 	$getAllUserInfo = GetUserInformationDB1P("User");
+	
 
 	if($_SERVER['REQUEST_METHOD']=="POST")
 	{
@@ -14,6 +14,21 @@
 				echo "Please type Division/District/Area name on search box";
 			}
 		}
+
+			if (isset($_POST["rateUSerBtn"])) {
+				if(isset($_SESSION['logged_in']) && ($_SESSION['Type']=="Admin" || $_SESSION['Type']=="User" ) && !empty($_POST['userRate'])){
+					//require 'GetUserInformation.php';
+					$rowl = GetUserInformation2P($_SESSION['Type'],$_SESSION['EmailID']);
+					$_SESSION['donarId'] = $_GET['donarId'];
+					if($_SESSION['donarId']==$rowl['Id']){
+						echo "<script>alert('Nice try! You can not rate yourself');</script>";
+					}else{
+						UserRating($_SESSION['donarId'], $_POST['userRate'], $rowl['Id']);
+					}
+				}else{
+					echo "<script>alert('Please log in to rate user');</script>";
+				}
+			}
 	}
 ?>
 
@@ -72,7 +87,7 @@
 	</label>
 	<table>
 		<tr>
-			<th colspan="6">
+			<th colspan="7">
 				<form method="POST">
 					Search donar : <input style="width: 50%; color: green;" type="text" name="search" title="Search donar by Blood Group/Division/District/Area" placeholder="Search donar by Blood Group/Division/District/Area" autocomplete="on">
 					<input type="submit" name="searchBtn" value="Search">
@@ -80,7 +95,7 @@
 			</th>
 		</tr>
 		<tr>
-			<th colspan="6" style="text-align: center;">User information : </th>
+			<th colspan="7" style="text-align: center;">User information : </th>
 		</tr>
 		<tr>
 			<th>Full name</th>
@@ -89,6 +104,7 @@
 			<th>Want to donate blood?</th>
 			<th>Living history</th>
 			<th>Reguest for blood</th>
+			<th>See profile</th>
 		</tr>
 		<?php
 			if($getAllUserInfo->num_rows > 0){
@@ -103,16 +119,21 @@
 					Division : <?php echo $rowValue['Division'] ?><br />District : <?php echo $rowValue['District']; ?><br />Area: <?php echo $rowValue['Area']; ?>
 				</td>
 				<td><input type="submit" name="sendBloodRequest" value="Request for Blood"></td>
+				<td><a href="CheckUser.php?email=<?php echo $rowValue['EmailID'] ?>">Go to profile</a></td>
 			</tr>
 			<tr>
-				<th colspan="6">
-					Ratings: 0% <!-- later from db -->
+				<th colspan="7">
+					<form method="POST" action="/Blood Donors Network/Home.php?donarId=<?php echo $rowValue['Id']; ?>">
+					
 					<br />&#10004; Rate this user
 					<input type="radio" name="userRate" value="1"><label>1</label>
 					<input type="radio" name="userRate" value="2"><label>2</label>
 					<input type="radio" name="userRate" value="3"><label>3</label>
 					<input type="radio" name="userRate" value="4"><label>4</label>
 					<input type="radio" name="userRate" value="5"><label>5</label>
+					<label><br />Tap Ok to rate this user : </label>
+					<input type="submit" name="rateUSerBtn" value="Ok">
+				</form>
 				</th>
 			</tr>
 		<?php
@@ -120,7 +141,7 @@
 			}else{
 				?>
 				<tr>
-					<td colspan="6" style="color: red; text-align: center;">There's no data found.</td>
+					<td colspan="7" style="color: red; text-align: center;">There's no data found.</td>
 				</tr>
 		<?php
 			}

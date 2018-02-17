@@ -1,0 +1,11 @@
+
+CREATE TABLE Rating(
+   Id int(4) not null auto_increment primary key,
+   UserId int(4) not null,
+   Rating float,
+   RatingById int(4),
+   FOREIGN KEY fk_Rating(UserId)
+   REFERENCES User(Id)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+)ENGINE=InnoDB

@@ -59,8 +59,20 @@
 
 <!DOCTYPE html>
 <html>
+
+ <div class="nav">
+ 	<link href='styleNav.css' rel='stylesheet'>
+	<ul>
+		<li><a href="/Blood Donors Network/Home.php"> <i class="fa fa-home"> </i> Home</a></li>
+		<li><a> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
+		<li><a>Login</a></li>
+		<li><a>Contact Us</a></li>
+	</ul>
+</div>
+	
 <head>
 	<title>Registration | Blood Donors Network</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf-8">
 	<style type="text/css">
 		.error{
@@ -68,14 +80,24 @@
 		}
 		.MainContent{
 			text-align: center;
-			font-family: Harrington;
+			font-family:Georgia;
 		}
+		div.inputbox {
+    position: static;
+ 
+}
 	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="MainContent">        
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
        
-       <h2>Registration</h2>        
+       <!--<h2>Registration</h2>-->
+        <div class="loginbox"> 
+        	<img src="register.png" class="re">  
+        	<br><br><br><br>
         <div class="inputbox">
         	<label>First Name : </label>
 			<input type="text" name="firstName" placeholder="type your first name">
@@ -92,7 +114,7 @@
 
 		<div class="inputbox">
 			<label>Email ID : </label>
-			<input type="email" name="email" placeholder="Ex: example@example.com">
+			<input type="email" name="email" size="35" placeholder="Ex: example@example.com">
 			<span class="error"><?php echo $emailErr; ?></span>
 			<br><br>
 		</div>
@@ -128,8 +150,8 @@
 	    </div>
 
 	    <div class="inputbox">
-	    	<label>Please select your blood group from below: </label><br />
-	    	<select name="bloodGroup">
+	    	<label>Please Select Your Blood Group From Below: </label> <br><br />
+	    	<select id="soflow" name="bloodGroup">
 			  <option value="A+">A+</option>
 			  <option value="A-">A-</option>
 			  <option value="AB+">AB+</option>
@@ -145,7 +167,7 @@
 
 	    <div class="inputbox">
 	    	<label>Division : </label>
-	    	<select name="division">
+	    	<select id="soflow" name="division">
 	    		<option value="Dhaka">Dhaka</option>
 	    		<option value="Rajshahi">Rajshahi</option>
 	    		<option value="Sylhet">Sylhet</option>
@@ -170,11 +192,15 @@
 			<span class="error"><?php echo $areaNameErr; ?></span>
 			<br><br>
 	    </div>
-
-		<input type="submit" name="submit" value="Register">
+	    <div class="inputbox">
+			<input type="submit" name="submit" value="Register">
+		<br><br>
+		</div>
 	</form>
 	<label>Already have an account. Please </label>
-	<a href="/Blood Donors Network/Login.php" style="text-decoration: none; color: green;">Log in</a>
+	
+	<a  href="/Blood Donors Network/Login.php" style="text-decoration: none; color: #778899 ;">Log in</a>
+	
 	<label> here.</label>
 	<br />
 	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/Home.php">Home</a></label>

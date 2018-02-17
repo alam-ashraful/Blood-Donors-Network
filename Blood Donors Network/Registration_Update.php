@@ -15,6 +15,8 @@
 		if(mysqli_query($conn,$insertUserInfoSql))
 		{
 			echo "<script>alert('Information successfully updated.');</script>";
+			sleep(3);
+			header("location: UserDash.php");
 		}else{
 			echo "<br />Error: " . mysqli_error($conn);
 		}

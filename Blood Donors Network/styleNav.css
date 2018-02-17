@@ -1,0 +1,48 @@
+body{
+
+	background: url(blood.png);
+	background-repeat:no-repeat;
+
+	margin: 20;
+	padding: 0;
+
+	background-size: 100% 120%;
+	background-position: center;
+	font-family: sans-serif;
+	color: white;
+}
+.nav ul {
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+.nav ul li {
+	/*float: up;*/
+	position: relative;
+	padding: 10px;
+	width: 120px;
+	height: 25px;
+	vertical-align: middle;
+	cursor: pointer;
+	border-top: 1px solid #BDC3C7;
+	border-right: 5px solid #F1C40F;
+
+	background-color: black;
+	opacity: .8; 
+	line-height: 20px;
+	text-align: center;
+	-webkit-transition: all;
+	transition: all;
+	/*font-size: 10px;*/
+}
+
+.nav ul li a {
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+.nav ul li a:hover {
+	background: #ffc107;
+	color: #000;
+}
