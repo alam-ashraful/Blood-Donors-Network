@@ -124,7 +124,11 @@
 			<tr>
 				<th colspan="7">
 					<form method="POST" action="/Blood Donors Network/Home.php?donarId=<?php echo $rowValue['Id']; ?>">
-					
+					<label>Ratings: </label>
+					<?php
+							$value = GetUserRate('Rating', $rowValue['EmailID']);
+							echo $value . "%";
+					?>
 					<br />&#10004; Rate this user
 					<input type="radio" name="userRate" value="1"><label>1</label>
 					<input type="radio" name="userRate" value="2"><label>2</label>

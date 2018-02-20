@@ -32,17 +32,17 @@
 	<style type="text/css">
 		.MainContent{
 			text-align: center;
-			font-family: Harrington;
+			font-family: sans-serif;
 		}
 	</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="MainContent">
  
 	<h1 style="color: blue;">Welcome to Blood Donors Network</h1>
-	<label>Go to <a href="/Blood Donors Network/Home.php"><p><i class="material-icons w3-spin w3-jumbo">home</i></p></a></label>
+	<label>Go to <a href="/Blood Donors Network/Home.php"><p><i class="fa fa-home">Home</i></p></a></label>
 		<p>Hi, <?php echo $getUserInfo['FirstName']?> </p>
 
 			<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">

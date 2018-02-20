@@ -68,7 +68,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <div class="nav">
+ 	<link href='styleNav.css' rel='stylesheet'>
+	<ul>
+		<li><a href="/Blood Donors Network/HomeMain.php"> <i class="fa fa-home"> </i> Home</a></li>
+		<li><a href="/Blood Donors Network/Home.php"> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
+		<li><a href="/Blood Donors Network/Login.php"><i class="fa fa-address-book-o" style="font-size:20px"></i> Login</a></li>
+		<li><a>Contact Us</a></li>
+	</ul>
+</div>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Login | Blood Donors Network</title>
+<link rel="stylesheet" type="text/css" href="style2.css">
 	<meta charset="utf-8">
 	<style type="text/css">
 		.error{
@@ -76,34 +89,41 @@
 		}
 		.MainContent{
 			text-align: center;
-			font-family: Harrington;
+			font-family: Georgia;
 		}
 	</style>
 </head>
 <body class="MainContent">
-	<h1>Please log in with your valid information</h1>
-	<form method="POST">
+	<!-- <h1>Please log in with your valid information</h1> -->
+
+        <div class="loginbox"> 
+        	<img src="login.png" class="re"> 
+        	<br><br><br><br><br><br> 
+        <h1>Login Here</h1>
+       <form method="POST">
+        <p> Email ID : </p>
 		<div class="inputbox">
-			<label>Email ID : </label>
+			<!-- <label>Email ID : </label> -->
 			<input type="email" name="email" placeholder="Ex: example@example.com">
 			<span class="error"><?php echo $emailErr; ?></span>
 			<br><br>
 		</div>
-
+		<p> Password:</p>
 		<div class="inputbox">
-			<label>Password : </label>
+		<!-- 	<label>Password : </label> -->
 			<input type="password" name="password" title="No limit">
 			<span class="error"><?php echo $passwordErr; ?></span>
 			<br><br>
 	    </div>
-
+		<div class="inputbox">
 	    <input type="submit" name="submit" value="Submit">
+		</div>
 	</form>
 	<label>Don't have an account?</label>
 	<a href="/Blood Donors Network/Registration.php" style="text-decoration: none; color: cyan;">Sign up</a>
 	<label> here.</label>
 
 	<br />
-	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/Home.php">Home</a></label>
+	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/HomeMain.php">Home</a></label>
 </body>
 </html>

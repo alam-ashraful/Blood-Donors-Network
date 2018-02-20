@@ -1,0 +1,103 @@
+body{
+
+	background: url(img_hbd_bg.jpg) center center fixed;
+	background-repeat:no-repeat;
+    height: 650px;
+	margin: 20;
+	padding: 0;
+	/*background-size: cover;*/
+	background-size: 100% 120%;
+	background-position: center;
+	font-family: sans-serif;
+	color: white;
+}
+
+.loginbox{
+	width: 320px;
+	height: 550px;
+	background: rgba(0, 0, 0, .3);
+	color:#FFFFFF;
+	top: 90px;
+	left:39%;
+	position: absolute;
+ 	padding: 2px 30px;
+	box-sizing: border-box;
+
+}
+
+.loginbox p{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.re{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top:10px;
+	left: calc(50% - 50px);
+}
+h1{
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.inputbox input{
+		width: 100%;
+	margin-bottom: 20px; 
+}
+
+.inputbox input[type="password"], input[type="email"], input[type="text"]
+
+{
+
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+
+.inputbox input[type="submit"]
+
+{
+	border: none;
+	outline: none;
+	height: 30px;
+	background: #1a75ff;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+}
+.inputbox input[type="submit"]:hover
+{
+	cursor: pointer;
+	background: #33ff33;
+	color: #ffffff;
+}
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+ 
+   border: .01px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: .00005px;
+   overflow: hidden;
+   padding: 5px 5px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 100px;
+}

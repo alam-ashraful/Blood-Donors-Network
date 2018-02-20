@@ -63,9 +63,9 @@
  <div class="nav">
  	<link href='styleNav.css' rel='stylesheet'>
 	<ul>
-		<li><a href="/Blood Donors Network/Home.php"> <i class="fa fa-home"> </i> Home</a></li>
-		<li><a> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
-		<li><a>Login</a></li>
+		<li><a href="/Blood Donors Network/HomeMain.php"> <i class="fa fa-home"> </i> Home</a></li>
+		<li><a href="/Blood Donors Network/Home.php"> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
+		<li><a href="/Blood Donors Network/Login.php"> <i class="fa fa-address-book-o" style="font-size:20px"></i> Login</a></li>
 		<li><a>Contact Us</a></li>
 	</ul>
 </div>
@@ -203,6 +203,6 @@
 	
 	<label> here.</label>
 	<br />
-	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/Home.php">Home</a></label>
+	<label>Go to <a style="text-decoration: none; color: cyan;" href="/Blood Donors Network/HomeMain.php">Home</a></label>
 </body>
 </html>

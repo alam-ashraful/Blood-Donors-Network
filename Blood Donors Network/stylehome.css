@@ -1,0 +1,24 @@
+body{
+
+	background: url(w1.jpg) center center fixed;
+	background-repeat:no-repeat;
+    height: 650px;
+	margin: 20;
+	padding: 0;
+	/*background-size: cover;*/
+/*	background-size: 100% 120%;*/
+	background-position: center;
+	font-family: sans-serif;
+	color: white;
+}
+.head{
+	font-family:sans-serif; 
+	color:white;
+	font-variant: small-caps;
+	text-align: center;
+}
+.par{
+	 color:#42f459;
+	 font-style: italic;
+	 text-align: right;
+}

@@ -26,7 +26,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Amin | Blood Donors Network</title>
+	<title>Admin | Blood Donors Network</title>
 	<meta charset="utf-8">
 	<style type="text/css">
 		.MainContent{

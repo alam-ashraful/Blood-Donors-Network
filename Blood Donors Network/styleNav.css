@@ -1,16 +1,4 @@
-body{
 
-	background: url(blood.png);
-	background-repeat:no-repeat;
-
-	margin: 20;
-	padding: 0;
-
-	background-size: 100% 120%;
-	background-position: center;
-	font-family: sans-serif;
-	color: white;
-}
 .nav ul {
 	margin:0;
 	padding:0;

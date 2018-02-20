@@ -62,39 +62,31 @@
 	function GetUserRate($tableName, $columnName)
 	{
 		require 'DB.php';
-		$ratingValue = 0;
+
+		$values = 0;
+
+		$user = GetUserInformation2P('User', $columnName);
+
+		$userInfomationSql1 = 'SELECT * FROM ' . $tableName . ' WHERE  UserId = ' . '"' . $user['Id'] . '"';
+		$userInfomationSql2 = 'SELECT SUM(rating) as value_sum FROM ' . $tableName . ' WHERE  UserId = ' . '"' . $user['Id'] . '"';
+		$result1 = $conn->query($userInfomationSql1);
+		$result2 = $conn->query($userInfomationSql2);
+
 		$count = 0;
-		$rowCount = 0;
-		$row = 0;
-
-		$userInfomationSql = 'SELECT * FROM ' . $tableName . ' WHERE  EmailID = ' . '"' . $columnName . '"';
-
-	// 	if($result = mysqli_query($conn,$userInfomationSql)){
-	// 	$rowCount = mysql_num_rows($result);
-	// }
-	// if(!$rowCount = 0)
-	// 	{
-	// 		$row = $row->fetch_assoc();
-	// 		while(!$row){
-	// 			$ratingValue+=($row['Rating']*100)/5;
-	// 			$count+=1;
-	// 			return $ratingValue/=$count;
-	// 		}
-	// 	}else{
-	// 		return 0;
-	// 	}
-
-		$result = $conn->query($userInfomationSql);
-		$rowCount = $result->num_rows;
-
-		if($rowCount > 0)
+		if($result1->num_rows > 0)
 		{
-			while ($row = $result->fetch_array()) {
-				$ratingValue+=($row['Rating']*100)/5;
-				$count+=1;
-				$ratingValue/=$count;
+			while($row1 = $result1->fetch_assoc()){
+				$count++;
 			}
 		}
-		return $ratingValue;
+
+		if($count >0 && $result2->num_rows > 0)
+		{
+			while($row2 = $result2->fetch_assoc()){
+				$values = ($row2['value_sum']*100)/($count*5);
+			}
+		}
+		
+		return $values;
 	}
 ?>
