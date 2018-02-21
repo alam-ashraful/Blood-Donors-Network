@@ -76,7 +76,7 @@
 			 	if (empty($row['Result'])) {
 			 		$values = 0;
 			 	}else{
-			 		$values = $row['Result'];
+			 		$values = round($row['Result'],2);
 			 	}
 			 }
 		}
