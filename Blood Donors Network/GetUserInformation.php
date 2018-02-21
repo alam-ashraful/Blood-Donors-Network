@@ -49,8 +49,6 @@
 
 		$insertUserInfoSql = 'INSERT INTO `rating`(`UserId`, `Rating`, `RatingById`) VALUES ( ' . '"' . $donarId . '","' . $ratingValue . '","' . $userId . '")';
 
-		echo $insertUserInfoSql;
-
 		if(mysqli_query($conn,$insertUserInfoSql))
 		{
 			echo "<script>alert('User rate has been successfuly added.');</script>";
@@ -66,27 +64,23 @@
 		$values = 0;
 
 		$user = GetUserInformation2P('User', $columnName);
+		$userInfomationSql2 = 'SELECT (SUM(rating)/ (COUNT(UserId)*5))*100 as Result FROM ' . $tableName . ' WHERE  UserId = ' . '"' . $user['Id'] . '"';
 
-		$userInfomationSql1 = 'SELECT * FROM ' . $tableName . ' WHERE  UserId = ' . '"' . $user['Id'] . '"';
-		$userInfomationSql2 = 'SELECT SUM(rating) as value_sum FROM ' . $tableName . ' WHERE  UserId = ' . '"' . $user['Id'] . '"';
-		$result1 = $conn->query($userInfomationSql1);
+		// SELECT (SUM(rating)/ (COUNT(UserId)*5))*100 as Rating from rating WHERE UserId = 5
+
 		$result2 = $conn->query($userInfomationSql2);
 
-		$count = 0;
-		if($result1->num_rows > 0)
+		if($result2->num_rows > 0)
 		{
-			while($row1 = $result1->fetch_assoc()){
-				$count++;
-			}
+			 while ($row = $result2->fetch_assoc()) {
+			 	if (empty($row['Result'])) {
+			 		$values = 0;
+			 	}else{
+			 		$values = $row['Result'];
+			 	}
+			 }
 		}
 
-		if($count >0 && $result2->num_rows > 0)
-		{
-			while($row2 = $result2->fetch_assoc()){
-				$values = ($row2['value_sum']*100)/($count*5);
-			}
-		}
-		
 		return $values;
 	}
 ?>

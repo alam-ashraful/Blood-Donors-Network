@@ -114,7 +114,7 @@
 </head>
 <body>
 	<fieldset>
-		<legend>Donar Profile</legend>
+		<legend><strong>Donar Profile</strong></legend>
 		<form method="post">
 			<table class="responstable">
 				<tr>
@@ -145,9 +145,9 @@
 				<tr>
 					<td>Liviving history</td>
 					<td>:</td>
-					<td>Division <?php echo $row['Division']; ?>
-					<br />District <?php echo $row['District']; ?>
-					<br />Area <?php echo $row['Area']; ?></td>
+					<td>Division : <?php echo $row['Division']; ?>
+					<hr /><br />District : <?php echo $row['District']; ?>
+					<hr /><br />Area : <?php echo $row['Area']; ?></td>
 				</tr>
 				<tr>
 					<td>Ratings</td>

@@ -119,7 +119,7 @@
 					Division : <?php echo $rowValue['Division'] ?><br />District : <?php echo $rowValue['District']; ?><br />Area: <?php echo $rowValue['Area']; ?>
 				</td>
 				<td><input type="submit" name="sendBloodRequest" value="Request for Blood"></td>
-				<td><a href="CheckUser.php?email=<?php echo $rowValue['EmailID'] ?>">Go to profile</a></td>
+				<td><a href="CheckUser.php?email=<?php echo $rowValue['EmailID'] ?>">View profile</a></td>
 			</tr>
 			<tr>
 				<th colspan="7">
