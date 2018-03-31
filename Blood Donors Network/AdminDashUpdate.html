@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Admin Dash</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+ <body class="MainContent">        
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+       
+       <div class="form-group row">
+		  <div class="col-3">
+		    <label for="ex1">col-3</label>
+		    <input class="form-control" id="ex1" type="text">
+		  </div>
+       
+        <div class=""> 
+        	
+        	<br><br><br><br>
+        <div>
+        	<label>Area 1: </label>
+			<input type="text" name="area1Name" placeholder="Type First Area Name">
+			<span class="error"><?php echo $area1Err; ?></span>
+			<br><br>
+		</div>
+
+		<div>
+			<label>Area 2 : </label>
+			<input type="text" name="area2Name" placeholder="type Second Area Name">
+			<span class="error"><?php echo $area2Err; ?></span>
+			<br><br>
+		</div>
+
+	    <div>
+        	<label>Distance: </label>
+			<input type="text" name="distance" placeholder="Type Distance">
+			<span class="error"><?php echo $distanceErr; ?></span>
+			<br><br>
+		</div>
+
+
+	    <div>
+			<input type="submit" name="submit" value="Submit">
+		<br><br>
+		</div>
+	</form>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

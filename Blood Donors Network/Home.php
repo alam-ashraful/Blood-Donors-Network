@@ -3,16 +3,33 @@
 
 	require 'GetUserInformation.php';
 	$getAllUserInfo = GetUserInformationDB1P("User");
+
+	$fErr = "";
+	$bG = "";
+
+	$bGr = GetBloodGroup();
 	
 
 	if($_SERVER['REQUEST_METHOD']=="POST")
 	{
-		if (isset($_POST["searchBtn"])) {
-			if (!empty($_POST["search"])) {
-				$getAllUserInfo =  GetUserInformationBySearch($_POST["search"]);
-			}else{
-				echo "Please type Division/District/Area name on search box";
+		if (isset($_POST["searchBtn"]) || isset($_POST['furtherSearch'])) {
+
+			if(isset($_POST['searchBtn'])){
+				if (!empty($_POST["search"]) || !empty($_POST['area1'])) {
+					$getAllUserInfo =  GetUserInformationBySearch($_POST["search"], $_POST['area1']);
+				}else{
+					echo "Please type Division/District/Area name on search box";
+				}
 			}
+
+			// if(isset($_POST['furtherSearch'])){
+			// 	if(empty($_POST['search'])){
+			// 		$fErr = "Please type an blood group";
+			// 	}else
+			// 	{
+			// 		$getAllUserInfo = GetUserInformationBySearch($_POST['search'], $_POST['area1']);
+			// 	}
+			// }
 		}
 
 			if (isset($_POST["rateUSerBtn"])) {
@@ -89,8 +106,22 @@
 		<tr>
 			<th colspan="7">
 				<form method="POST">
-					Search donar : <input style="width: 50%; color: green;" type="text" name="search" title="Search donar by Blood Group/Division/District/Area" placeholder="Search donar by Blood Group/Division/District/Area" autocomplete="on">
+					Search donar :
+					<select name="area1">
+						<?php $ar = getArea1(); ?>
+						<?php while($r = $ar->fetch_assoc()){ ?>
+					  		<option value="<?php echo $r['Area1']; ?>"><?php echo $r['Area1']; ?></option>
+					 	<?php } ?>
+					</select>
+					<select name="search">
+						<?php while($b = $bGr->fetch_assoc()) { ?>
+					  <option value="<?php echo $b['BloodGroupName']; ?>"><?php echo $b['BloodGroupName']; ?></option>
+					  <?php } ?>
+					  <!-- <span class="error"><?php echo $bloodGroupErr; ?></span> -->
+					</select>
+					<!-- <input style="width: 50%; color: green;" type="text" name="search" title="Search donar by Blood Group/Division/District/Area" placeholder="Search donar by Blood Group/Division/District/Area" autocomplete="on"> -->
 					<input type="submit" name="searchBtn" value="Search">
+					<span><?php echo $fErr ?></span>
 				</form>
 			</th>
 		</tr>
@@ -145,11 +176,24 @@
 			}else{
 				?>
 				<tr>
-					<td colspan="7" style="color: red; text-align: center;">There's no data found.</td>
+					<form method="POST">
+					<td colspan="7" style="color: red; text-align: center;">There's no data found. <input style="background-color: cyan;" type="submit" name="furtherSearch" value="furtherSearch"></td>
+				</form>
 				</tr>
 		<?php
 			}
 		?>
 	</table>
 </body>
+<script type="text/javascript">
+	function test(argument) {
+		$.ajax{
+			type: 'GET',
+			url: 'localhost:80/',
+			success(result,status,xhr){
+				return result;
+			}
+		}
+	}
+</script>
 </html>
