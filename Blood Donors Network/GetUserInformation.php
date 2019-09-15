@@ -72,7 +72,7 @@
 
 		if(mysqli_query($conn,$insertUserInfoSql))
 		{
-			echo "<script>alert('User rate has been successfuly added.');</script>";
+			echo "<div class=\"alert alert-success\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i>User rate has been successfuly added.</div>";
 		}else{
 			echo "<br />Error: " . mysqli_error($conn);
 		}
@@ -156,7 +156,7 @@
 	{
 		require 'DB.php';
 
-		$userInfomationSql = 'SELECT distinct(Area1) from distancevector';
+		$userInfomationSql = 'SELECT distinct(Area) from user';
 
 		$result = $conn->query($userInfomationSql);
 

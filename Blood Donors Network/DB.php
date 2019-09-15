@@ -2,7 +2,7 @@
 	$servername = "localhost";
 	$serverusername = "root";
 	$serverpassword = "";
-	$databasename = "blood donors network";
+	$databasename = "bdn";
 
 	$conn = new mysqli($servername, $serverusername, $serverpassword, $databasename);
 

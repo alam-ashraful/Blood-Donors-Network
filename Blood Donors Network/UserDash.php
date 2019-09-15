@@ -42,7 +42,7 @@
 <body class="MainContent">
  
 	<h1 style="color: blue;">Welcome to Blood Donors Network</h1>
-	<label>Go to <a href="/Blood Donors Network/Home.php"><p><i class="fa fa-home">Home</i></p></a></label>
+	<label>Go to <a href="Home.php"><p><i class="fa fa-home">Home</i></p></a></label>
 		<p>Hi, <?php echo $getUserInfo['FirstName']?> </p>
 
 			<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">

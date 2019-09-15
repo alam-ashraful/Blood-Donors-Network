@@ -38,12 +38,14 @@
 					$rowl = GetUserInformation2P($_SESSION['Type'],$_SESSION['EmailID']);
 					$_SESSION['donarId'] = $_GET['donarId'];
 					if($_SESSION['donarId']==$rowl['Id']){
-						echo "<script>alert('Nice try! You can not rate yourself');</script>";
+						echo "<div class=\"alert alert-warning\"><i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>
+						Nice try! You can not rate yourself</div>";
 					}else{
 						UserRating($_SESSION['donarId'], $_POST['userRate'], $rowl['Id']);
 					}
 				}else{
-					echo "<script>alert('Please log in to rate user');</script>";
+					echo "<div class=\"alert alert-warning\"><i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>
+					Please log in to rate user</div>";
 				}
 			}
 	}
@@ -54,6 +56,8 @@
 <head>
 	<title>Home | Blood Donors Network</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<style>
 	table {
 	    border-collapse: collapse;
@@ -108,9 +112,9 @@
 				<form method="POST">
 					Search donar :
 					<select name="area1">
-						<?php $ar = getArea1(); ?>
-						<?php while($r = $ar->fetch_assoc()){ ?>
-					  		<option value="<?php echo $r['Area1']; ?>"><?php echo $r['Area1']; ?></option>
+						<?php $ar = getArea1();
+						while($r = $ar->fetch_assoc()){ ?>
+					  		<option value="<?php echo $r['Area']; ?>"><?php echo $r['Area']; ?></option>
 					 	<?php } ?>
 					</select>
 					<select name="search">
@@ -154,7 +158,7 @@
 			</tr>
 			<tr>
 				<th colspan="7">
-					<form method="POST" action="/Blood Donors Network/Home.php?donarId=<?php echo $rowValue['Id']; ?>">
+					<form method="POST" action="Home.php?donarId=<?php echo $rowValue['Id']; ?>">
 					<label>Ratings: </label>
 					<?php
 							$value = GetUserRate('Rating', $rowValue['EmailID']);
@@ -189,7 +193,7 @@
 	function test(argument) {
 		$.ajax{
 			type: 'GET',
-			url: 'localhost:80/',
+			url: 'localhost:8080/',
 			success(result,status,xhr){
 				return result;
 			}

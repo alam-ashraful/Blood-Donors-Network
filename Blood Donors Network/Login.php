@@ -71,9 +71,9 @@
  <div class="nav">
  	<link href='styleNav.css' rel='stylesheet'>
 	<ul>
-		<li><a href="/Blood Donors Network/HomeMain.php"> <i class="fa fa-home"> </i> Home</a></li>
-		<li><a href="/Blood Donors Network/Home.php"> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
-		<li><a href="/Blood Donors Network/Login.php"><i class="fa fa-address-book-o" style="font-size:20px"></i> Login</a></li>
+		<li><a href="HomeMain.php"> <i class="fa fa-home"> </i> Home</a></li>
+		<li><a href="Home.php"> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
+		<li><a href="Login.php"><i class="fa fa-address-book-o" style="font-size:20px"></i> Login</a></li>
 		<li><a>Contact Us</a></li>
 	</ul>
 </div>
@@ -120,7 +120,7 @@
 		</div>
 	</form>
 	<label>Don't have an account?</label>
-	<a href="/Blood Donors Network/Registration.php" style="text-decoration: none; color: cyan;">Sign up</a>
+	<a href="Registration.php" style="text-decoration: none; color: cyan;">Sign up</a>
 	<label> here.</label>
 
 	<br />

@@ -11,9 +11,9 @@
  <div class="nav2">
   <link href='stylenav2.css' rel='stylesheet'>
   <ul>
-    <li><a href="/Blood Donors Network/HomeMain.php"> <i class="fa fa-home"> </i> Home</a></li>
-    <li><a href="/Blood Donors Network/Home.php"> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
-    <li><a href="/Blood Donors Network/Login.php"><i class="fa fa-address-book-o" style="font-size:20px"></i> Login</a></li>
+    <li><a href="HomeMain.php"> <i class="fa fa-home"> </i> Home</a></li>
+    <li><a href="Home.php"> <i class="fa fa-search-plus" style="font-size:15px"> </i> Donor List</a></li>
+    <li><a href="Login.php"><i class="fa fa-address-book-o" style="font-size:20px"></i> Login</a></li>
     <li><a>Contact Us</a></li>
   </ul>
 </div>
